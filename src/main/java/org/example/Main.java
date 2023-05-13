@@ -9,16 +9,16 @@ public class Main {
         String[] arr = {"aaa","bbb","ccc","aaa","bbb","ccc"};
         String[] newArr = new String[arr.length];
         int count = 0;
-        for (int i = 0; i < arr.length; i++) {
+        for (String s : arr) {
             boolean isDuplicate = false;
-            for (int j = 0; j < count; j++){
-                if (arr[i].equals(newArr[j])){
+            for (int j = 0; j < count; j++) {
+                if (s.equals(newArr[j])) {
                     isDuplicate = true;
                     break;
                 }
             }
-            if(!isDuplicate){
-                newArr[count] = arr[i];
+            if (!isDuplicate) {
+                newArr[count] = s;
                 count++;
             }
         }
@@ -26,9 +26,9 @@ public class Main {
             System.out.println(newArr[i]);
         }
         String[] arr1 = {"aaa","bbb","ccc","aaa","bbb","ccc"};
-        System.out.println(noDuplicate(arr1));
+        System.out.println(noDuplicates(arr1));
     }
-    public static String noDuplicate(String ...arr){
+    public static String noDuplicates(String ...arr){
         return Arrays.stream(arr)
                 .distinct()
                 .collect(Collectors.joining(", "));
